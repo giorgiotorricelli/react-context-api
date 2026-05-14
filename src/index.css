@@ -20,6 +20,12 @@
   bottom: 0;
 }
 
+.input-budget {
+  translate: 0 -20%;
+  right: 0;
+  bottom: 0;
+}
+
 .navbar {
   list-style: none;
 

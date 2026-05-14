@@ -8,10 +8,10 @@ import { useContext } from "react";
 
 function Cards_wrapper({ productList }) {
 
-    const { budgetMode } = useContext(BudgetContext);
+    const { budgetMode, budgetValue } = useContext(BudgetContext);
     const navigate = useNavigate();
     const budgetList = productList.filter(current => {
-        return current.price <= 30;
+        return budgetMode ? current.price <= budgetValue : current.price < Infinity;
     });
 
     return (

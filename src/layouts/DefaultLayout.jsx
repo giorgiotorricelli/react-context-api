@@ -4,7 +4,14 @@ import { useContext } from "react";
 import { BudgetContext } from "../contexts/BudgetContext";
 
 function DefaultLayout() {
-    const { budgetMode, setBudgetMode } = useContext(BudgetContext);
+    const {
+        budgetMode,
+        setBudgetMode,
+        budgetValue,
+        setBudgetValue,
+        budgetSettedHandler
+    
+    } = useContext(BudgetContext);
     return (
         <>
             <header className="my-header">
@@ -22,7 +29,9 @@ function DefaultLayout() {
                         </li>
                     </ul>
                 </div>
+                <input type="number" placeholder="budget value" className="position-absolute input-budget" value={budgetValue} onChange={budgetSettedHandler}/>
                 <button className="btn btn-primary position-absolute btn-budget" onClick={() => { setBudgetMode(!budgetMode) }}>Budget mode</button>
+                <h1>{JSON.stringify(budgetValue)}</h1>
             </header>
             <Outlet />
         </>
