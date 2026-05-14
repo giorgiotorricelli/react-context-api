@@ -1,12 +1,18 @@
 import { createContext, useState } from "react";
 
-const BudgetContext = createContext();
+const BudgetContext = createContext(null);
 
 function BudgetProvider({ children }) {
-    const budget = 11;
+
+    const [budgetMode, setBudgetMode] = useState(false);
+
+    const value = {
+        budgetMode,
+        setBudgetMode
+    }
 
     return (
-        <BudgetContext.Provider value={budget}>
+        <BudgetContext.Provider value={value}>
             {children}
         </BudgetContext.Provider>
     );
