@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router';
+import { BudgetProvider } from './contexts/BudgetContext';
 
 import DefaultLayout from './layouts/DefaultLayout';
 import Homepage from './pages/Homepage';
@@ -17,6 +18,7 @@ function App() {
 
   return (
     <>
+    <BudgetProvider>
       <BrowserRouter>
         <Routes>
           <Route element={<DefaultLayout/>}>
@@ -29,6 +31,8 @@ function App() {
           <Route path='*' element={<NotFound/>}/>
         </Routes>
       </BrowserRouter>
+    </BudgetProvider>
+      
     </>
   );
 }
